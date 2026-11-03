@@ -1,0 +1,48 @@
+
+.events-page {
+  min-height: 60vh;
+  padding: 50px 7%;
+  background-color: #faf8fc;
+}
+
+.events-header {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #eee8f8;
+  border-radius: 18px;
+}
+
+.events-header h1 {
+  color: #49386c;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.events-header p {
+  color: #716780;
+  font-size: 16px;
+}
+
+.events-content {
+  margin-top: 40px;
+}
+
+.events-content h2 {
+  color: #49386c;
+}
+
+.events-card {
+  background: white;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 15px;
+  border: 1px solid #eee6f5;
+}
+
+.events-card h3 {
+  color: #49386c;
+}
+
+.events-card p {
+  color: #777;
+}
