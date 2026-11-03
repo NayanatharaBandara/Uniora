@@ -1,53 +1,91 @@
 
-import { Link } from "react-router-dom";
-import { Instagram, Facebook, Mail } from "lucide-react";
-import "../styles/footer.css";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Heart
+} from 'lucide-react'
+
+import '../styles/footer.css'
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-brand">
+      <div className="footer-container">
+
+        <div className="footer-section footer-brand">
           <h2>UNIORA</h2>
-          <p>Uni Life, One Platform.</p>
+
           <p>
-            Making university life easier through one connected
-            student platform.
+            Uni Life, One Platform.
+            Making university life easier,
+            smarter and more connected.
+          </p>
+
+          <div className="footer-socials">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+
+            <a href="https://www.facebook.com/">
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-section">
+          <h3>Quick Links</h3>
+          <a href="/">Home</a>
+          <a href="/marketplace">Marketplace</a>
+          <a href="/secondhand">Second-hand</a>
+          <a href="/services">Student Services</a>
+        </div>
+
+        <div className="footer-section">
+          <h3>Explore More</h3>
+          <a href="/rentals">Rentals</a>
+          <a href="/events">Events</a>
+          <a href="/birthday-planner">Birthday Planner</a>
+          <a href="/account">My Account</a>
+        </div>
+
+        <div className="footer-section">
+          <h3>Contact Us</h3>
+
+          <p>
+            <Mail size={17} />
+            uniora@example.com
+          </p>
+
+          <p>
+            <Phone size={17} />
+            Contact our team
+          </p>
+
+          <p>
+            <MapPin size={17} />
+            University Community
           </p>
         </div>
 
-        <div className="footer-column">
-          <h3>Explore</h3>
-          <Link to="/">Home</Link>
-          <Link to="/marketplace">Marketplace</Link>
-          <Link to="/secondhand">Second-hand</Link>
-          <Link to="/services">Services</Link>
-        </div>
-
-        <div className="footer-column">
-          <h3>Discover</h3>
-          <Link to="/rentals">Rentals</Link>
-          <Link to="/events">Events</Link>
-          <Link to="/birthday-planner">Birthday Planner</Link>
-          <Link to="/account">My Account</Link>
-        </div>
-
-        <div className="footer-column">
-          <h3>Connect with us</h3>
-          <p><Mail size={16} /> hello@uniora.com</p>
-          <div className="footer-socials">
-            <a href="#instagram" aria-label="Instagram"><Instagram /></a>
-            <a href="#facebook" aria-label="Facebook"><Facebook /></a>
-          </div>
-        </div>
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 UNIORA. All rights reserved.</p>
-        <p>Made for university life ❤️</p>
+        <p>
+          © {new Date().getFullYear()} UNIORA.
+          All rights reserved.
+        </p>
+
+        <p>
+          Made with <Heart size={15} /> for university life.
+        </p>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
