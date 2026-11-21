@@ -58,12 +58,12 @@ function Footer() {
 
           <p>
             <Mail size={17} />
-            uniora@example.com
+            uniora@gmail.com
           </p>
 
           <p>
             <Phone size={17} />
-            Contact our team
+            0745689789
           </p>
 
           <p>
