@@ -1,3 +1,24 @@
+/* =========================================
+   Global Reset - දෙපැත්තේ සුදු ඉරි ඉවත් කිරීමට
+   ========================================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #faf8fc;
+}
+
+/* =========================================
+   Module Pages Styles
+   ========================================= */
 .module-page {
   min-height: 60vh;
   padding: 60px 8%;
@@ -14,3 +35,326 @@
   color: #716780;
   font-size: 16px;
 }
+
+/* =========================================
+   Dark Purple Full-Width Footer Styles
+   ========================================= */
+.uf-footer {
+  background-color: #261830;
+  color: #e9e2f0;
+  border-top: 1px solid #3d284d;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: hidden;
+}
+
+.uf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Top CTA Banner */
+.uf-cta-section {
+  background-color: #322040;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #48305b;
+}
+
+.uf-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #b794f4;
+  margin-bottom: 0.5rem;
+}
+
+.uf-cta-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.25;
+}
+
+.uf-cta-subtitle {
+  font-size: 0.95rem;
+  color: #cbbcd8;
+  margin: 0 0 1.5rem 0;
+  max-width: 540px;
+  line-height: 1.5;
+}
+
+.uf-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.uf-btn-primary {
+  background-color: #6b46c1;
+  color: #ffffff;
+  padding: 0.7rem 1.35rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.uf-btn-primary:hover {
+  background-color: #7c56d4;
+}
+
+.uf-btn-outline {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0.7rem 1.35rem;
+  border-radius: 8px;
+  border: 1px solid #7e5ca3;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.uf-btn-outline:hover {
+  background-color: rgba(183, 148, 244, 0.12);
+  border-color: #b794f4;
+}
+
+/* Main Footer Section */
+.uf-main-section {
+  padding: 2.75rem 0;
+}
+
+.uf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+}
+
+@media (min-width: 900px) {
+  .uf-grid {
+    grid-template-columns: 1.1fr 1.6fr 1.2fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Brand Column */
+.uf-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.uf-logo-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #6b46c1;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uf-brand-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.uf-brand-tagline {
+  font-size: 0.78rem;
+  color: #b794f4;
+}
+
+.uf-brand-desc {
+  font-size: 0.9rem;
+  color: #cbbcd8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Links Layout */
+.uf-links-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.uf-stacked-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.uf-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.85rem 0;
+}
+
+.uf-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.uf-link {
+  color: #cbbcd8;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+
+.uf-link:hover {
+  color: #ffffff;
+}
+
+/* Campuses Card */
+.uf-campus-card {
+  background-color: #322040;
+  border: 1px solid #48305b;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.uf-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.85rem 0;
+}
+
+.uf-campus-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  color: #e9e2f0;
+  padding: 0.35rem 0;
+}
+
+.uf-badge-live {
+  background-color: rgba(56, 161, 105, 0.2);
+  color: #68d391;
+  border: 1px solid rgba(104, 211, 145, 0.35);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+}
+
+.uf-badge-soon {
+  background-color: rgba(214, 158, 46, 0.18);
+  color: #f6e05e;
+  border: 1px solid rgba(246, 224, 94, 0.3);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+}
+
+/* Contact & Socials */
+.uf-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.uf-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #cbbcd8;
+}
+
+.uf-contact-list a {
+  color: #cbbcd8;
+  text-decoration: none;
+}
+
+.uf-contact-list a:hover {
+  color: #ffffff;
+}
+
+.uf-icon {
+  color: #b794f4;
+  flex-shrink: 0;
+}
+
+.uf-socials {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.uf-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #593d70;
+  background-color: #322040;
+  color: #e9e2f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.uf-social-btn:hover {
+  background-color: #6b46c1;
+  border-color: #b794f4;
+  color: #ffffff;
+}
+
+/* Bottom Bar */
+.uf-bottom-bar {
+  background-color: #1b1023;
+  padding: 1.25rem 0;
+  text-align: center;
+  border-top: 1px solid #352244;
+}
+
+.uf-legal-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #cbbcd8;
+  margin-bottom: 0.4rem;
+}
+
+.uf-legal-links a {
+  color: #e9e2f0;
+  text-decoration: none;
+}
+
+.uf-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.uf-copyright {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #9e8cb0;
+}
+
