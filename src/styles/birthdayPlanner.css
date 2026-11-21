@@ -1,0 +1,113 @@
+
+.birthday-planner-page {
+  background: #faf8fc;
+  min-height: 80vh;
+  padding: 45px 7%;
+  color: #302747;
+}
+
+.birthday-hero {
+  background: #eee7f7;
+  text-align: center;
+  padding: 65px 20px;
+  border-radius: 22px;
+}
+
+.birthday-hero svg {
+  color: #8054b8;
+}
+
+.birthday-hero h1 {
+  font-size: 34px;
+  margin: 20px 0 12px;
+}
+
+.birthday-hero p {
+  color: #766b84;
+  line-height: 1.7;
+}
+
+.birthday-planner-content {
+  background: white;
+  max-width: 650px;
+  margin: 45px auto;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid #eee5f5;
+}
+
+.birthday-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.birthday-intro svg {
+  color: #8054b8;
+}
+
+.birthday-intro h2 {
+  margin: 12px 0;
+}
+
+.birthday-intro p {
+  color: #82778d;
+}
+
+.birthday-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.birthday-form label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.birthday-form input,
+.birthday-form select {
+  padding: 13px;
+  border: 1px solid #e5dced;
+  border-radius: 9px;
+  font-size: 15px;
+  background: white;
+}
+
+.birthday-date-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e5dced;
+  border-radius: 9px;
+  padding: 0 12px;
+}
+
+.birthday-date-input input {
+  border: none;
+  flex: 1;
+}
+
+.birthday-form button {
+  margin-top: 20px;
+  padding: 15px;
+  background: #7654a5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.birthday-form button:hover {
+  background: #604287;
+}
+
+@media (max-width: 600px) {
+  .birthday-hero h1 {
+    font-size: 26px;
+  }
+
+  .birthday-planner-content {
+    padding: 22px;
+  }
+}

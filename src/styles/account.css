@@ -1,0 +1,497 @@
+
+/* =================================
+   UNIORA ACCOUNT DASHBOARD
+================================= */
+
+.account-page {
+  min-height: 80vh;
+  padding: 55px 7%;
+  background: #fbf9f7;
+  color: #382345;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.account-header {
+  max-width: 1150px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.account-eyebrow {
+  color: #8052b5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.account-header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.account-header p {
+  color: #81758a;
+  font-size: 15px;
+}
+
+.account-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 1px solid #eadcf5;
+  background: white;
+  color: #7544b5;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* PROFILE */
+
+.account-profile {
+  max-width: 1150px;
+  margin: 0 auto 25px;
+  padding: 25px;
+  background: white;
+  border: 1px solid #f0e8f4;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.account-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #f0e8fa;
+  color: #7544b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-profile-info h2 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+.account-profile-info p {
+  margin: 0 0 10px;
+  color: #81758a;
+  font-size: 14px;
+}
+
+.account-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #f5effa;
+  color: #7544b5;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* STATISTICS */
+
+.account-stats {
+  max-width: 1150px;
+  margin: 0 auto 35px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.account-stat-card {
+  background: white;
+  padding: 23px;
+  border: 1px solid #f0e8f4;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.account-stat-card > svg {
+  color: #8052b5;
+  background: #f4edfb;
+  padding: 12px;
+  width: 25px;
+  height: 25px;
+  border-radius: 12px;
+}
+
+.account-stat-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.account-stat-card span {
+  color: #81758a;
+  font-size: 13px;
+}
+
+.account-stat-card strong {
+  font-size: 20px;
+  color: #382345;
+}
+
+/* ORDERS SECTION */
+
+.account-orders {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.account-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.account-section-heading h2 {
+  font-size: 24px;
+  margin: 0 0 7px;
+}
+
+.account-section-heading p {
+  color: #81758a;
+  font-size: 14px;
+  margin: 0;
+}
+
+.account-refresh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #f0e8fa;
+  border: none;
+  color: #7544b5;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.account-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* EMPTY STATE */
+
+.account-empty {
+  padding: 55px 20px;
+  text-align: center;
+  background: white;
+  border: 1px solid #f0e8f4;
+  border-radius: 18px;
+}
+
+.account-empty > svg {
+  color: #a88ac7;
+}
+
+.account-empty h3 {
+  margin: 15px 0 8px;
+}
+
+.account-empty p {
+  color: #81758a;
+  font-size: 14px;
+}
+
+.account-empty button {
+  margin-top: 15px;
+  padding: 12px 22px;
+  background: #7544b5;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* ORDER CARD */
+
+.account-order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.account-order-card {
+  background: white;
+  border: 1px solid #f0e8f4;
+  border-radius: 17px;
+  padding: 25px;
+}
+
+.account-order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #f0e8f4;
+}
+
+.account-order-label {
+  color: #7544b5;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.account-order-top p {
+  margin: 7px 0 0;
+  color: #93879a;
+  font-size: 12px;
+}
+
+/* ORDER STATUS */
+
+.order-status {
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #f2ecfa;
+  color: #7544b5;
+}
+
+.status-confirmed,
+.status-completed {
+  background: #e8f7ed;
+  color: #267b45;
+}
+
+.status-processing {
+  background: #eaf2ff;
+  color: #3263a8;
+}
+
+.status-cancelled {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+/* ORDER PRODUCTS */
+
+.account-order-items {
+  padding: 10px 0;
+}
+
+.account-order-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f0f7;
+}
+
+.account-order-item img,
+.account-item-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f4edfb;
+}
+
+.account-item-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8052b5;
+  flex-shrink: 0;
+}
+
+.account-item-info {
+  flex: 1;
+}
+
+.account-item-info strong {
+  font-size: 14px;
+}
+
+.account-item-info p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #81758a;
+}
+
+.account-order-item > strong {
+  font-size: 14px;
+  color: #7544b5;
+}
+
+/* CUSTOMER DETAILS */
+
+.account-customer-details {
+  margin-top: 15px;
+  padding: 18px;
+  background: #faf7fd;
+  border-radius: 12px;
+}
+
+.account-customer-details h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.account-customer-details p {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #72647d;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 9px 0;
+}
+
+.account-customer-details svg {
+  color: #8052b5;
+  flex-shrink: 0;
+}
+
+/* ORDER TOTAL */
+
+.account-order-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 18px;
+  margin-top: 10px;
+  border-top: 1px solid #f0e8f4;
+}
+
+.account-order-bottom div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.account-order-bottom span {
+  color: #81758a;
+  font-size: 12px;
+}
+
+.account-order-bottom > strong {
+  color: #7544b5;
+  font-size: 16px;
+}
+
+/* SELLER STATUS CONTROL */
+
+.account-status-control {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #f0e8f4;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.account-status-control label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.account-status-control select {
+  padding: 10px 13px;
+  border: 1px solid #e6d9f0;
+  background: #faf7fd;
+  color: #554064;
+  border-radius: 9px;
+  outline: none;
+}
+
+.account-status-control span {
+  color: #8052b5;
+  font-size: 12px;
+}
+
+/* ERROR AND LOADING */
+
+.account-message {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #554064;
+  background: #fbf9f7;
+}
+
+.account-error {
+  max-width: 1150px;
+  margin: 0 auto 20px;
+  padding: 13px 16px;
+  background: #fff0f0;
+  border: 1px solid #f5cccc;
+  border-radius: 10px;
+  color: #b42318;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .account-page {
+    padding: 35px 5%;
+  }
+
+  .account-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .account-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .account-header h1 {
+    font-size: 26px;
+  }
+
+  .account-profile {
+    padding: 18px;
+  }
+
+  .account-order-card {
+    padding: 17px;
+  }
+
+  .account-order-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .account-section-heading h2 {
+    font-size: 20px;
+  }
+
+  .account-order-item {
+    gap: 10px;
+  }
+
+  .account-order-item img,
+  .account-item-placeholder {
+    width: 48px;
+    height: 48px;
+  }
+}
