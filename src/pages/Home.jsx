@@ -34,7 +34,7 @@ const categories = [
   },
   {
     name: "Bags",
-    image: "/images/have somethin to offer.jpg.jpeg"
+    image: "/images/bags.jpg"
   },
   {
     name: "Books",
@@ -176,7 +176,9 @@ function Home() {
       { match: ["desk organizer", "desk organiser"], image: "/images/desk organizer.jpg.jpeg" },
       { match: ["semester notebook", "notebook set"], image: "/images/Stationary.jpg.jpeg" },
       { match: ["premium pen", "pen collection"], image: "/images/pen collection.jpg.jpeg" },
-      { match: ["scientific calculator", "calculator"], image: "/images/calculater.jpg.jpeg" }
+      { match: ["scientific calculator", "calculator"], image: "/images/calculater.jpg.jpeg" },
+      { match: ["laptop bag", "laptop bags"], image: "/images/laptop-bags.jpg" },
+      { match: ["bag", "bags"], image: "/images/bags.jpg" }
     ];
 
     const localMatch = localImages.find(({ match }) =>
