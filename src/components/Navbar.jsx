@@ -8,7 +8,6 @@ import {
   Menu,
   X,
   LogOut,
-  Store,
   ShoppingCart
 } from "lucide-react";
 
@@ -17,7 +16,6 @@ import "../styles/navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
-
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("student");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,37 +35,27 @@ function Navbar() {
         .eq("id", currentUser.id)
         .maybeSingle();
 
-      if (active && !error) {
-        setRole(data?.role || "student");
-      }
+      if (active && !error) setRole(data?.role || "student");
     }
 
     async function loadSession() {
       const { data } = await supabase.auth.getSession();
-
-      if (active) {
-        setUser(data.session?.user || null);
-      }
-
-      await loadProfile(data.session?.user || null);
+      const currentUser = data.session?.user || null;
+      if (active) setUser(currentUser);
+      await loadProfile(currentUser);
     }
 
     loadSession();
 
-    const {
-      data: { subscription }
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      const currentUser = session?.user || null;
-
-      if (active) {
-        setUser(currentUser);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        const currentUser = session?.user || null;
+        if (active) setUser(currentUser);
+        setTimeout(() => {
+          if (active) loadProfile(currentUser);
+        }, 0);
       }
-
-      // Defer the profile query until the auth callback completes.
-      setTimeout(() => {
-        if (active) loadProfile(currentUser);
-      }, 0);
-    });
+    );
 
     return () => {
       active = false;
@@ -75,14 +63,14 @@ function Navbar() {
     };
   }, []);
 
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    setMenuOpen(false);
-    navigate("/");
-  }
-
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    closeMenu();
+    navigate("/");
   }
 
   const links = [
@@ -97,107 +85,104 @@ function Navbar() {
   return (
     <header className="uniora-navbar">
       <div className="uniora-nav-inner">
+        <Link to="/" className="navbar-brand" onClick={closeMenu}>
+          <img
+            src={unioraLogo}
+            alt="UNIORA - Uni Life, One Platform"
+            className="navbar-logo-image"
+          />
+        </Link>
 
-        {/* BRAND */}
-       
-<Link to="/" className="navbar-brand">
-  <img
-  src={unioraLogo}
-  alt="UNIORA - Uni Life, One Platform"
-  className="navbar-logo-image"
-/>
-  
-</Link>
-
-        {/* DESKTOP LINKS */}
-        <nav className={`uniora-nav-links ${menuOpen ? "uniora-nav-open" : ""}`}>
-          {links.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              onClick={closeMenu}
-              className={({ isActive }) =>
-                `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
-              }
-            >
-              {link.label}
-            </NavLink>
-          ))}
-
-          {user && role === "seller" && (
-            <NavLink
-              to="/my-products"
-              onClick={closeMenu}
-              className={({ isActive }) =>
-                `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
-              }
-            >
-              My Products
-            </NavLink>
-          )}
-        </nav>
-
-        {/* ACTIONS */}
-        <div className="uniora-nav-actions">
-          <button
-            className="uniora-nav-icon"
-            type="button"
-            title="Search"
-            onClick={() => navigate("/marketplace")}
-          >
-            <Search size={19} />
-          </button>
-
-          <button
-            className="uniora-nav-icon"
-            type="button"
-            title="Shopping cart"
-            onClick={() => navigate("/cart")}
-          >
-            <ShoppingCart size={19} />
-          </button>
-
-          {user ? (
-            <>
-              <button
-                className="uniora-account-button"
-                onClick={() => navigate("/account")}
-                type="button"
-              >
-                <UserRound size={17} />
-                <span>My Account</span>
-              </button>
-
-              <button
-                className="uniora-logout-button"
-                onClick={handleLogout}
-                type="button"
-              >
-                <LogOut size={16} />
-                <span>Logout</span>
-              </button>
-            </>
-          ) : (
-            <div className="uniora-auth-actions">
-              <Link to="/login" className="uniora-login-button">
-                Login
-              </Link>
-              <Link to="/login" className="uniora-register-button">
-                Create account
-              </Link>
-            </div>
-          )}
-        </div>
-
-        {/* MOBILE MENU BUTTON */}
         <button
           className="uniora-mobile-toggle"
           type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={25} /> : <Menu size={25} />}
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
+        <div className={`uniora-nav-menu ${menuOpen ? "uniora-nav-menu-open" : ""}`}>
+          <nav className="uniora-nav-links" aria-label="Main navigation">
+            {links.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
+
+            {user && role === "seller" && (
+              <NavLink
+                to="/my-products"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
+                }
+              >
+                My Products
+              </NavLink>
+            )}
+          </nav>
+
+          <div className="uniora-nav-actions">
+            <button
+              className="uniora-nav-icon"
+              type="button"
+              title="Search"
+              aria-label="Search marketplace"
+              onClick={() => { closeMenu(); navigate("/marketplace"); }}
+            >
+              <Search size={19} />
+            </button>
+
+            <button
+              className="uniora-nav-icon"
+              type="button"
+              title="Shopping cart"
+              aria-label="Shopping cart"
+              onClick={() => { closeMenu(); navigate("/cart"); }}
+            >
+              <ShoppingCart size={19} />
+            </button>
+
+            {user ? (
+              <>
+                <button
+                  className="uniora-account-button"
+                  type="button"
+                  onClick={() => { closeMenu(); navigate("/account"); }}
+                >
+                  <UserRound size={17} />
+                  <span>My Account</span>
+                </button>
+                <button
+                  className="uniora-logout-button"
+                  type="button"
+                  onClick={handleLogout}
+                >
+                  <LogOut size={16} />
+                  <span>Logout</span>
+                </button>
+              </>
+            ) : (
+              <div className="uniora-auth-actions">
+                <Link to="/login" className="uniora-login-button" onClick={closeMenu}>
+                  Login
+                </Link>
+                <Link to="/login" className="uniora-register-button" onClick={closeMenu}>
+                  Create account
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </header>
   );
