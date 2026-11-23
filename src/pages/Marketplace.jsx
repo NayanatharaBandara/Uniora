@@ -20,13 +20,13 @@ import "../styles/marketplace.css";
 
 const fallbackImages = {
   stationery:
-    "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=85",
+    "/images/Stationary.jpg.jpeg",
   electronics:
-    "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=85",
+    "/images/Electronic items.jpg",
   bags:
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=85",
+    "/images/bags.jpg",
   books:
-    "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=85",
+    "/images/programme fundamentals.jpg",
 };
 
 function getFallbackImage(product) {
