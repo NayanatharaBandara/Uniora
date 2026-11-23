@@ -19,7 +19,6 @@ import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 import BirthdayPlanner from "./pages/BirthdayPlanner";
-import "./styles/uniora-redesign.css";
 
 function MobileBottomNav() {
   return (
