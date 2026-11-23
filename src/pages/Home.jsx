@@ -167,6 +167,25 @@ function Home() {
     return `LKR ${Number(price || 0).toLocaleString("en-LK")}`;
   }
 
+  function getHomepageProductImage(product) {
+    const name = product.name?.toLowerCase() || "";
+
+    const localImages = [
+      { match: ["stapler", "stepler"], image: "/images/Stepler.jpg" },
+      { match: ["programming fundamentals"], image: "/images/Programming_Fundamentals.jpg" },
+      { match: ["desk organizer", "desk organiser"], image: "/images/desk organizer.jpg.jpeg" },
+      { match: ["semester notebook", "notebook set"], image: "/images/Stationary.jpg.jpeg" },
+      { match: ["premium pen", "pen collection"], image: "/images/pen collection.jpg.jpeg" },
+      { match: ["scientific calculator", "calculator"], image: "/images/calculater.jpg.jpeg" }
+    ];
+
+    const localMatch = localImages.find(({ match }) =>
+      match.some((keyword) => name.includes(keyword))
+    );
+
+    return localMatch?.image || product.image_url;
+  }
+
   return (
     <>
       <main className="home-page">
@@ -334,12 +353,11 @@ function Home() {
                   key={product.id}
                 >
                   <div className="product-image-wrap">
-                    {product.image_url &&
-                    !product.name?.toLowerCase().includes("stapler") ? (
+                    {getHomepageProductImage(product) ? (
                       <div
                         className="product-background-image"
                         style={{
-                          backgroundImage: `url("${product.image_url}")`
+                          backgroundImage: `url("${getHomepageProductImage(product)}")`
                         }}
                       />
                     ) : (
