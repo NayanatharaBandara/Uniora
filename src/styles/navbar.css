@@ -96,3 +96,78 @@
   .uniora-nav-actions .uniora-account-button,
   .uniora-nav-actions .uniora-logout-button { padding:10px; }
 }
+
+
+/* Redesigned global marketplace search */
+.uniora-header-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 250px;
+  max-width: 440px;
+  min-width: 180px;
+  height: 44px;
+  padding: 0 5px 0 14px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 25px;
+  background: rgba(255,255,255,.97);
+  color: #756b80;
+  box-shadow: 0 3px 12px rgba(16,10,24,.12);
+}
+.uniora-header-search > svg { flex: 0 0 auto; color: #7654a5; }
+.uniora-header-search input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #30253d;
+  font-size: 13px;
+}
+.uniora-header-search input::placeholder { color: #968d9f; }
+.uniora-search-submit {
+  flex: 0 0 auto;
+  height: 34px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 20px;
+  background: #7654a5;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.uniora-search-submit:hover { background: #62428e; }
+.uniora-search-clear {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #eee8f4;
+  color: #665577;
+  cursor: pointer;
+}
+@media (max-width: 850px) {
+  .uniora-nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 10px;
+  }
+  .uniora-header-search {
+    order: 3;
+    flex: 1 0 100%;
+    max-width: none;
+    height: 42px;
+  }
+}
+@media (max-width: 420px) {
+  .uniora-header-search { margin-top: 1px; }
+  .uniora-search-submit { padding: 0 14px; }
+}
