@@ -38,7 +38,7 @@ const categories = [
   },
   {
     name: "Books",
-    image: "/images/Programming_Fundamentals.jpg"
+    image: "/images/programme fundamentals.jpg"
   }
 ];
 
@@ -171,13 +171,13 @@ function Home() {
     const name = product.name?.toLowerCase() || "";
 
     const localImages = [
-      { match: ["stapler", "stepler"], image: "/images/Stepler.jpg" },
-      { match: ["programming fundamentals"], image: "/images/Programming_Fundamentals.jpg" },
+      { match: ["stapler", "stepler"], image: "/images/market stepler.jpg" },
+      { match: ["programming fundamentals"], image: "/images/programme fundamentals.jpg" },
       { match: ["desk organizer", "desk organiser"], image: "/images/desk organizer.jpg.jpeg" },
       { match: ["semester notebook", "notebook set"], image: "/images/Stationary.jpg.jpeg" },
-      { match: ["premium pen", "pen collection"], image: "/images/pen collection.jpg.jpeg" },
-      { match: ["scientific calculator", "calculator"], image: "/images/calculater.jpg.jpeg" },
-      { match: ["laptop bag", "laptop bags"], image: "/images/laptop-bags.jpg" },
+      { match: ["premium pen", "pen collection"], image: "/images/market_premium pen collection.jpg" },
+      { match: ["scientific calculator", "calculator"], image: "/images/market_calculator.jpg" },
+      { match: ["laptop bag", "laptop bags"], image: "/images/market laptopbag.jpg" },
       { match: ["bag", "bags"], image: "/images/bags.jpg" }
     ];
 
