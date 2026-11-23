@@ -31,7 +31,7 @@ const conditionOptions = [
 ];
 
 const fallbackImage =
-  "https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=900&q=85";
+  "/images/used items_Calculator.jpg";
 
 function SecondHand() {
   const [listings, setListings] = useState([]);
