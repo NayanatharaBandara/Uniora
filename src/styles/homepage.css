@@ -49,7 +49,7 @@
   overflow: hidden;
 
   background-image:
-    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=2000&q=90");
+    url("/images/background image.jpg.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -253,7 +253,7 @@
   position: absolute;
   inset: 0;
   border-radius: 21px;
-  background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=90");
+  background-image: url("/images/background image.jpg.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -370,7 +370,7 @@
       rgba(238, 230, 244, .68),
       rgba(225, 213, 237, .72)
     ),
-    url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=2000&q=90");
+    url("/images/connect and enjoy.jpg.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -951,11 +951,11 @@
 }
 
 .rentals-discover {
-  background-image: url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&q=90");
+  background-image: url("/images/rental-middle (2).jpg");
 }
 
 .events-discover {
-  background-image: url("https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=90");
+  background-image: url("/images/event-hero.jpg");
 }
 
 .discover-overlay {
@@ -1178,7 +1178,7 @@
 .seller-cta-image {
   min-height: 230px;
   border-radius: 18px;
-  background-image: url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1100&q=90");
+  background-image: url("/images/have somethin to offer.jpg.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -1703,21 +1703,21 @@
 .home-how-section .how-steps-grid > *:nth-child(1) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=90") !important;
+    url("/images/create an account.jpg.jpeg") !important;
   animation-delay: 0s, .9s;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(2) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=90") !important;
+    url("/images/discover what do you need.jpg.jpeg") !important;
   animation-delay: .2s, 1.1s;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(3) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1000&q=90") !important;
+    url("/images/connect and enjoy.jpg.jpeg") !important;
   animation-delay: .4s, 1.3s;
 }
 
@@ -1830,21 +1830,21 @@
 .home-how-section .how-steps-grid > *:nth-child(1) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=90") !important;
+    url("/images/create an account.jpg.jpeg") !important;
   animation-delay: 0s, .9s;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(2) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=90") !important;
+    url("/images/discover what do you need.jpg.jpeg") !important;
   animation-delay: .2s, 1.1s;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(3) {
   background-image:
     linear-gradient(rgba(255,255,255,.58), rgba(255,255,255,.48)),
-    url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1000&q=90") !important;
+    url("/images/connect and enjoy.jpg.jpeg") !important;
   animation-delay: .4s, 1.3s;
 }
 
@@ -1942,19 +1942,19 @@
 
 /* Keep the original photographs clear */
 .home-how-section .how-steps-grid > *:nth-child(1) {
-  background-image: url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=90") !important;
+  background-image: url("/images/create an account.jpg.jpeg") !important;
   background-size: cover !important;
   background-position: center !important;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(2) {
-  background-image: url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=90") !important;
+  background-image: url("/images/discover what do you need.jpg.jpeg") !important;
   background-size: cover !important;
   background-position: center !important;
 }
 
 .home-how-section .how-steps-grid > *:nth-child(3) {
-  background-image: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1000&q=90") !important;
+  background-image: url("/images/connect and enjoy.jpg.jpeg") !important;
   background-size: cover !important;
   background-position: center !important;
 }
