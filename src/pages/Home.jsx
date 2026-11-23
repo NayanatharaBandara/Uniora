@@ -26,19 +26,19 @@ import "../styles/homepage.css";
 const categories = [
   {
     name: "Stationery",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&q=85"
+    image: "/images/Stationary.jpg.jpeg"
   },
   {
     name: "Electronics",
-    image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=900&q=85"
+    image: "/images/Electronic items.jpg"
   },
   {
     name: "Bags",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900&q=85"
+    image: "/images/desk organizer.jpg.jpeg"
   },
   {
     name: "Books",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&q=85"
+    image: "/images/Programming_Fundamentals.jpg"
   }
 ];
 
@@ -46,28 +46,28 @@ const features = [
   {
     title: "Marketplace",
     description: "Shop stationery, electronics and more.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=85",
+    image: "/images/background image.jpg.jpeg",
     icon: ShoppingBag,
     link: "/marketplace"
   },
   {
     title: "Second-hand",
     description: "Discover affordable pre-loved items.",
-    image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=900&q=85",
+    image: "/images/secondhand items.jpg",
     icon: Recycle,
     link: "/secondhand"
   },
   {
     title: "Student Services",
     description: "Find helpful services around campus.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=85",
+    image: "/images/services.jpg.jpeg",
     icon: GraduationCap,
     link: "/services"
   },
   {
     title: "Rentals",
     description: "Rent equipment when you need it.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=85",
+    image: "/images/rental-hero.jpg",
     icon: House,
     link: "/rentals"
   }
@@ -77,19 +77,19 @@ const services = [
   {
     title: "Printing & Binding",
     description: "Get assignments and notes printed.",
-    image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=900&q=85",
+    image: "/images/printing.jpg.jpeg",
     icon: Printer
   },
   {
     title: "Photography",
     description: "Find photographers for special moments.",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=85",
+    image: "/images/rental-hero.jpg",
     icon: Camera
   },
   {
     title: "Laptop Repair",
     description: "Find help with your technical problems.",
-    image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=900&q=85",
+    image: "/images/laptop rapir.jpeg",
     icon: Wrench
   }
 ];
@@ -99,19 +99,19 @@ const steps = [
     title: "Create an account",
     description: "Join the UNIORA community and explore the platform.",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=85"
+    image: "/images/create an account.jpg.jpeg"
   },
   {
     title: "Discover what you need",
     description: "Browse products, services, rentals and event options.",
     icon: Search,
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&q=85"
+    image: "/images/discover what do you need.jpg.jpeg"
   },
   {
     title: "Connect and enjoy",
     description: "Make requests, shop and connect with other students.",
     icon: Heart,
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85"
+    image: "/images/connect and enjoy.jpg.jpeg"
   }
 ];
 
@@ -379,7 +379,7 @@ function Home() {
         <section className="home-secondhand-section">
           <div className="secondhand-image">
             <img
-              src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1200&q=90"
+              src="/images/secondhand items.jpg"
               alt="Books and reusable student items"
               loading="lazy"
             />
