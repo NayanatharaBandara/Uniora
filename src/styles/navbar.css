@@ -1,325 +1,98 @@
-
-/* ==========================================
-   UNIORA NAVIGATION BAR
-   ========================================== */
-
+/* UNIORA responsive navigation */
 .uniora-navbar {
-  width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  width: 100%;
   background: #30253d !important;
-  background-image: none !important;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 4px 18px rgba(20, 12, 30, 0.2);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 4px 18px rgba(20,12,30,.16);
 }
-
 .uniora-nav-inner {
   width: 100%;
-  min-height: 82px;
-  padding: 0 5%;
+  min-height: 76px;
+  padding: 0 clamp(16px, 4vw, 54px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 24px;
 }
-
-/* BRAND */
-
-.uniora-brand {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  text-decoration: none !important;
-  flex-shrink: 0;
+.navbar-brand { display:flex; align-items:center; flex-shrink:0; text-decoration:none; }
+.navbar-logo-image {
+  display:block;
+  width: clamp(125px, 13vw, 170px);
+  height: 58px;
+  object-fit:contain;
+  object-position:left center;
 }
-
-.uniora-brand-icon {
-  width: 43px;
-  height: 43px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  color: #fff;
-  background: #8060ad;
-}
-
-.uniora-brand-text strong {
-  display: block;
-  color: #fff;
-  font-size: 21px;
-  letter-spacing: 1.3px;
-  line-height: 1.2;
-}
-
-.uniora-brand-text small {
-  display: block;
-  color: #d7c8e7;
-  font-size: 10px;
-  margin-top: 4px;
-}
-
-/* NAVIGATION LINKS */
-
-.uniora-nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
+.uniora-nav-menu { display:flex; align-items:center; justify-content:flex-end; gap:18px; flex:1; min-width:0; }
+.uniora-nav-links { display:flex; align-items:center; justify-content:center; gap:3px; }
 .uniora-nav-link {
-  color: #eee8f4 !important;
-  text-decoration: none !important;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 11px 10px;
-  border-radius: 8px;
-  white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease;
+  display:block;
+  padding:10px 9px;
+  border-radius:9px;
+  color:#eee8f4 !important;
+  font:600 12px/1.2 Arial,sans-serif;
+  text-decoration:none !important;
+  white-space:nowrap;
 }
-
-.uniora-nav-link:hover {
-  color: #fff !important;
-  background: rgba(255,255,255,0.11);
-}
-
-.uniora-nav-link.uniora-nav-active {
-  color: #fff !important;
-  background: #7654a5;
-}
-
-/* RIGHT SIDE ACTIONS */
-
-.uniora-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
+.uniora-nav-link:hover,.uniora-nav-link.uniora-nav-active { background:#7654a5; color:#fff !important; }
+.uniora-nav-actions { display:flex; align-items:center; gap:7px; flex-shrink:0; }
 .uniora-nav-icon {
-  width: 37px;
-  height: 37px;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 10px;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
+  display:grid; place-items:center; width:38px; height:38px;
+  border:1px solid rgba(255,255,255,.2); border-radius:11px;
+  background:rgba(255,255,255,.08); color:#fff; cursor:pointer;
 }
-
-.uniora-nav-icon:hover {
-  background: #7654a5;
+.uniora-account-button,.uniora-logout-button {
+  display:flex; align-items:center; gap:7px; padding:10px 12px;
+  border:0; border-radius:9px; font-size:11px; font-weight:700; cursor:pointer;
 }
-
-.uniora-account-button,
-.uniora-logout-button {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  border: none;
-  border-radius: 9px;
-  padding: 10px 12px;
-  cursor: pointer;
-  font-size: 11px;
-  font-weight: 700;
+.uniora-account-button { background:#fff; color:#392c49; }
+.uniora-logout-button { background:rgba(255,255,255,.11); color:#fff; }
+.uniora-auth-actions { display:flex; align-items:center; gap:7px; }
+.uniora-login-button,.uniora-register-button {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:11px 13px; border-radius:9px; font-size:11px; font-weight:700;
+  text-decoration:none !important; white-space:nowrap;
 }
-
-.uniora-account-button {
-  background: #fff;
-  color: #392c49;
-}
-
-.uniora-logout-button {
-  background: rgba(255,255,255,0.11);
-  color: #fff;
-}
-
-.uniora-logout-button:hover {
-  background: #7654a5;
-}
-
-/* LOGIN AND REGISTER */
-
-.uniora-auth-actions {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.uniora-login-button,
-.uniora-register-button {
-  padding: 11px 15px;
-  border-radius: 9px;
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: none !important;
-}
-
-.uniora-login-button {
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.35);
-}
-
-.uniora-register-button {
-  background: #8a68b8;
-  color: #fff !important;
-}
-
-.uniora-login-button:hover {
-  background: rgba(255,255,255,0.12);
-}
-
-.uniora-register-button:hover {
-  background: #9b7ac6;
-}
-
-/* MOBILE TOGGLE */
-
+.uniora-login-button { color:#fff !important; border:1px solid rgba(255,255,255,.35); }
+.uniora-register-button { color:#fff !important; background:#8a68b8; }
 .uniora-mobile-toggle {
-  display: none;
-  background: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+  display:none; width:42px; height:42px; flex-shrink:0;
+  place-items:center; border:1px solid rgba(255,255,255,.18);
+  border-radius:11px; background:rgba(255,255,255,.08); color:#fff; cursor:pointer;
 }
-
-/* TABLET */
-
-@media (max-width: 1100px) {
-  .uniora-nav-inner {
-    padding: 0 3%;
-    gap: 12px;
-  }
-
-  .uniora-nav-links {
-    gap: 1px;
-  }
-
-  .uniora-nav-link {
-    padding: 10px 7px;
-    font-size: 11px;
-  }
-
-  .uniora-nav-actions {
-    gap: 6px;
-  }
+@media (max-width:1100px) {
+  .uniora-nav-inner { gap:12px; }
+  .uniora-nav-menu { gap:8px; }
+  .uniora-nav-link { padding:9px 7px; font-size:11px; }
+  .navbar-logo-image { width:140px; }
 }
-
-/* MOBILE */
-
-@media (max-width: 850px) {
-  .uniora-nav-inner {
-    min-height: 72px;
+@media (max-width:850px) {
+  .uniora-nav-inner { min-height:68px; padding:0 17px; gap:10px; }
+  .navbar-logo-image { width:142px; height:52px; }
+  .uniora-mobile-toggle { display:grid; margin-left:auto; }
+  .uniora-nav-menu {
+    display:none; position:absolute; top:100%; left:0; right:0;
+    padding:14px 17px 18px; background:#30253d;
+    border-top:1px solid rgba(255,255,255,.1);
+    box-shadow:0 14px 24px rgba(20,12,30,.2);
+    align-items:stretch; flex-direction:column; gap:13px;
   }
-
-  .uniora-mobile-toggle {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-  }
-
-  .uniora-nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 15px 5%;
-    background: #30253d;
-    flex-direction: column;
-    align-items: stretch;
-    box-shadow: 0 12px 20px rgba(20,12,30,0.22);
-  }
-
-  .uniora-nav-links.uniora-nav-open {
-    display: flex;
-  }
-
-  .uniora-nav-link {
-    padding: 13px;
-    font-size: 13px;
-  }
-
-  .uniora-nav-actions {
-    margin-left: auto;
-  }
-
+  .uniora-nav-menu.uniora-nav-menu-open { display:flex; }
+  .uniora-nav-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; }
+  .uniora-nav-link { padding:12px; font-size:13px; }
+  .uniora-nav-actions { display:flex; flex-wrap:wrap; gap:8px; }
   .uniora-nav-actions .uniora-account-button span,
-  .uniora-nav-actions .uniora-logout-button span {
-    display: none;
-  }
+  .uniora-nav-actions .uniora-logout-button span { display:inline; }
 }
-
-@media (max-width: 520px) {
-  .uniora-brand-text strong {
-    font-size: 17px;
-  }
-
-  .uniora-brand-text small {
-    font-size: 9px;
-  }
-
-  .uniora-brand-icon {
-    width: 37px;
-    height: 37px;
-  }
-
-  .uniora-nav-actions {
-    gap: 5px;
-  }
-
-  .uniora-nav-icon {
-    width: 33px;
-    height: 33px;
-  }
-
-  .uniora-auth-actions {
-    gap: 5px;
-  }
-
-  .uniora-login-button,
-  .uniora-register-button {
-    padding: 9px;
-    font-size: 10px;
-  }
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.navbar-logo-image {
-  width: 190px;
-  height: 65px;
-  object-fit: contain;
-  object-position: left center;
-  display: block;
-  background: transparent;
-}
-.navbar-logo-image {
-  width: 190px;
-  height: 75px;
-  object-fit: contain;
-  object-position: left center;
-  display: block;
-  flex-shrink: 0;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}.navbar-logo-image {
-  width: 190px;
-  height: 75px;
-  object-fit: contain;
-  object-position: left center;
-  display: block;
-  flex-shrink: 0;
+@media (max-width:420px) {
+  .uniora-nav-inner { padding:0 13px; }
+  .navbar-logo-image { width:125px; }
+  .uniora-nav-actions { display:grid; grid-template-columns:repeat(2,40px) 1fr; }
+  .uniora-nav-actions .uniora-auth-actions { grid-column:1 / -1; }
+  .uniora-auth-actions { width:100%; }
+  .uniora-auth-actions a { flex:1; }
+  .uniora-nav-actions .uniora-account-button,
+  .uniora-nav-actions .uniora-logout-button { padding:10px; }
 }
