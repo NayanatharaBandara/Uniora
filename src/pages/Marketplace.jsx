@@ -32,6 +32,14 @@ const fallbackImages = {
 function getFallbackImage(product) {
   const name = (product.name || "").toLowerCase();
 
+  if (name.includes("laptop bag") || name.includes("laptopbag")) return "/images/market laptopbag.jpg";
+  if (name.includes("bag") || name.includes("backpack")) return "/images/bags.jpg";
+  if (name.includes("stapler") || name.includes("stepler")) return "/images/market stepler.jpg";
+  if (name.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
+  if (name.includes("pen")) return "/images/market_premium pen collection.jpg";
+  if (name.includes("calculator")) return "/images/market_calculator.jpg";
+  if (name.includes("water bottle") || name.includes("bottle")) return "/images/market_resuable water bottles.jpg";
+
   if (name.includes("book") || name.includes("notes")) {
     return fallbackImages.books;
   }
