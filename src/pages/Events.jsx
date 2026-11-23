@@ -8,32 +8,32 @@ const categoryCards = [
   {
     name: 'Sound & Lighting',
     description: 'Speakers, microphones, DJs and lighting equipment.',
-    image: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800'
+    image: '/images/events_sound & lightning.jpg'
   },
   {
     name: 'Photography & Videography',
     description: 'Capture your special moments professionally.',
-    image: 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800'
+    image: '/images/photography.jpg.jpeg'
   },
   {
     name: 'Event Transportation',
     description: 'Transportation for celebrations and group events.',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800'
+    image: '/images/event_transport.jpg'
   },
   {
     name: 'Projectors & Screens',
     description: 'Projectors, LED screens and presentation equipment.',
-    image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800'
+    image: '/images/event_projector & screens.jpg'
   },
   {
     name: 'Gifts & Birthday Studio',
     description: 'Personalized gifts, cakes and decorations.',
-    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800'
+    image: '/images/events_birthday and gifts.jpg'
   },
   {
     name: 'Event Packages',
     description: 'Packages for birthdays, parties and celebrations.',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800'
+    image: '/images/event-entire.jpg'
   }
 ]
 
