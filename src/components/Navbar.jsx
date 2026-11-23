@@ -19,6 +19,7 @@ function Navbar() {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState("student");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -67,6 +68,13 @@ function Navbar() {
     setMenuOpen(false);
   }
 
+  function handleSearch(event) {
+    event.preventDefault();
+    const query = searchText.trim();
+    closeMenu();
+    navigate(query ? `/marketplace?search=${encodeURIComponent(query)}` : "/marketplace");
+  }
+
   async function handleLogout() {
     await supabase.auth.signOut();
     closeMenu();
@@ -92,6 +100,28 @@ function Navbar() {
             className="navbar-logo-image"
           />
         </Link>
+
+        <form className="uniora-header-search" onSubmit={handleSearch} role="search">
+          <Search size={19} aria-hidden="true" />
+          <input
+            type="search"
+            value={searchText}
+            onChange={(event) => setSearchText(event.target.value)}
+            placeholder="Search products, books, stationery..."
+            aria-label="Search UNIORA marketplace"
+          />
+          {searchText && (
+            <button
+              className="uniora-search-clear"
+              type="button"
+              onClick={() => setSearchText("")}
+              aria-label="Clear search"
+            >
+              <X size={16} />
+            </button>
+          )}
+          <button className="uniora-search-submit" type="submit">Search</button>
+        </form>
 
         <button
           className="uniora-mobile-toggle"
@@ -132,16 +162,6 @@ function Navbar() {
           </nav>
 
           <div className="uniora-nav-actions">
-            <button
-              className="uniora-nav-icon"
-              type="button"
-              title="Search"
-              aria-label="Search marketplace"
-              onClick={() => { closeMenu(); navigate("/marketplace"); }}
-            >
-              <Search size={19} />
-            </button>
-
             <button
               className="uniora-nav-icon"
               type="button"
