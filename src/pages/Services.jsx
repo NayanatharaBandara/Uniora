@@ -9,19 +9,19 @@ import { supabase } from "../lib/supabaseClient";
 import "../styles/services.css";
 
 const categoryImages = {
-  "Academic Support": "/images/service-academic-support.jpg",
-  "Laptop Repair": "/images/service-laptop-repair.jpg",
-  "Other Services": "/images/Other%20Services.png",
-  "Photography": "/images/service-photography.jpg",
-  "Printing & Binding": "/images/service-printing.jpg",
+  "Academic Support": "/images/programme fundamentals.jpg",
+  "Laptop Repair": "/images/laptop rapir.jpeg",
+  "Other Services": "/images/Other Services.png",
+  "Photography": "/images/photography.jpg.jpeg",
+  "Printing & Binding": "/images/printing.jpg.jpeg",
 };
 
 const serviceImages = {
-  "Academic Support": "/images/service-academic-support.jpg",
-  "Laptop Repair": "/images/service-laptop-repair.jpg",
-  "Other Services": "/images/Other%20Services.png",
-  "Photography": "/images/service-photography.jpg",
-  "Printing & Binding": "/images/service-printing.jpg",
+  "Academic Support": "/images/programme fundamentals.jpg",
+  "Laptop Repair": "/images/laptop rapir.jpeg",
+  "Other Services": "/images/Other Services.png",
+  "Photography": "/images/photography.jpg.jpeg",
+  "Printing & Binding": "/images/printing.jpg.jpeg",
 };
 
 const categoryIcons = {
