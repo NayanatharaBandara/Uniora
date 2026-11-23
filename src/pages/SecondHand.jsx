@@ -673,8 +673,8 @@ function SecondHand() {
                 >
                  
                    <div className={`secondhand-card-image ${!item.image_url ? "no-image" : ""}`}>
-                    {item.image_url && (
-                     <img src={item.image_url}
+                    {(item.image_url || fallbackImage) && (
+                     <img src={item.image_url || fallbackImage}
                           alt={item.name}
                           loading="lazy"
                            onError={(event) => {
