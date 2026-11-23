@@ -699,7 +699,7 @@ function Rentals() {
       <section className="rentals-feature-section">
         <div className="rentals-feature-image">
           <img
-            src="/images/rental-middle%20(2).jpg"
+            src="/images/rental-middle (2).jpg"
             alt="Students sharing useful rental equipment"
             loading="lazy"
           />
@@ -1182,7 +1182,7 @@ function Rentals() {
 
       <section className="rentals-bottom-cta">
         <img
-          src="/images/rental-middle%20(2).jpg"
+          src="/images/rental-middle (2).jpg"
           alt=""
           className="rentals-bottom-background"
         />
