@@ -178,6 +178,7 @@ function Home() {
       { match: ["premium pen", "pen collection"], image: "/images/market_premium pen collection.jpg" },
       { match: ["scientific calculator", "calculator"], image: "/images/market_calculator.jpg" },
       { match: ["laptop bag", "laptop bags"], image: "/images/market laptopbag.jpg" },
+      { match: ["water bottle", "reusable bottle"], image: "/images/market_resuable water bottles.jpg" },
       { match: ["bag", "bags"], image: "/images/bags.jpg" }
     ];
 
