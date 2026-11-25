@@ -31,7 +31,7 @@ const conditionOptions = [
 ];
 
 const fallbackImage =
-  "/images/used items_Calculator.jpg";
+  "https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=900&q=85";
 
 function SecondHand() {
   const [listings, setListings] = useState([]);
@@ -673,8 +673,8 @@ function SecondHand() {
                 >
                  
                    <div className={`secondhand-card-image ${!item.image_url ? "no-image" : ""}`}>
-                    {(item.image_url || fallbackImage) && (
-                     <img src={item.image_url || fallbackImage}
+                    {item.image_url && (
+                     <img src={item.image_url}
                           alt={item.name}
                           loading="lazy"
                            onError={(event) => {
