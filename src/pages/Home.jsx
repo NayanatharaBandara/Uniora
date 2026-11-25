@@ -34,7 +34,7 @@ const categories = [
   },
   {
     name: "Bags",
-    image: "/images/bags.jpg"
+    image: "/images/laptop-bags.jpg"
   },
   {
     name: "Books",
@@ -77,19 +77,19 @@ const services = [
   {
     title: "Printing & Binding",
     description: "Get assignments and notes printed.",
-    image: "/images/printing.jpg.jpeg",
+    image: "/images/service-printing.jpg",
     icon: Printer
   },
   {
     title: "Photography",
     description: "Find photographers for special moments.",
-    image: "/images/rental-hero.jpg",
+    image: "/images/service-photography.jpg",
     icon: Camera
   },
   {
     title: "Laptop Repair",
     description: "Find help with your technical problems.",
-    image: "/images/laptop rapir.jpeg",
+    image: "/images/service-laptop-repair.jpg",
     icon: Wrench
   }
 ];
@@ -177,9 +177,9 @@ function Home() {
       { match: ["semester notebook", "notebook set"], image: "/images/Stationary.jpg.jpeg" },
       { match: ["premium pen", "pen collection"], image: "/images/market_premium pen collection.jpg" },
       { match: ["scientific calculator", "calculator"], image: "/images/market_calculator.jpg" },
-      { match: ["laptop bag", "laptop bags", "laptop carry bag", "laptopbag"], image: "/images/market laptopbag.jpg" },
+      { match: ["laptop bag", "laptop bags", "laptop carry bag", "laptopbag"], image: "/images/laptop-bags.jpg" },
       { match: ["water bottle", "reusable bottle"], image: "/images/market_resuable water bottles.jpg" },
-      { match: ["bag", "bags"], image: "/images/bags.jpg" }
+      { match: ["bag", "bags"], image: "/images/laptop-bags.jpg" }
     ];
 
     const localMatch = localImages.find(({ match }) =>
