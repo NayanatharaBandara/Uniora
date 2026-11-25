@@ -19,6 +19,7 @@ import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Account from "./pages/Account";
 import BirthdayPlanner from "./pages/BirthdayPlanner";
+import Admin from "./pages/Admin";
 
 function MobileBottomNav() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/login" element={<Login />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/birthday-planner" element={<BirthdayPlanner />} />
           <Route path="/my-products" element={<SellerProducts />} />
           <Route path="*" element={
