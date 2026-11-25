@@ -45,14 +45,21 @@ function Login() {
           );
         }
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password
         });
 
         if (error) throw error;
 
-        navigate("/account");
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", data.user.id)
+          .maybeSingle();
+
+        if (profileError) throw profileError;
+        navigate(profile?.role === "admin" ? "/admin" : "/account");
       }
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");
