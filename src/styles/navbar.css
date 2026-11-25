@@ -171,3 +171,31 @@
   .uniora-header-search { margin-top: 1px; }
   .uniora-search-submit { padding: 0 14px; }
 }
+
+/* Mobile navigation: keep account actions in a clear, full-width row. */
+@media (max-width: 850px) {
+  .uniora-nav-menu { max-height: calc(100vh - 68px); overflow-y: auto; }
+  .uniora-nav-actions {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 9px;
+    width: 100%;
+  }
+  .uniora-nav-actions > button,
+  .uniora-nav-actions > .uniora-account-button,
+  .uniora-nav-actions > .uniora-logout-button { min-height: 44px; justify-content: center; }
+  .uniora-nav-actions .uniora-auth-actions {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 9px;
+  }
+  .uniora-nav-actions .uniora-auth-actions a { min-height: 44px; }
+}
+@media (max-width: 420px) {
+  .uniora-nav-actions { grid-template-columns: 42px minmax(0, 1fr) minmax(0, 1fr); }
+  .uniora-nav-actions .uniora-account-button,
+  .uniora-nav-actions .uniora-logout-button { padding: 9px 7px; font-size: 12px; }
+}
