@@ -8,7 +8,8 @@ import {
   Menu,
   X,
   LogOut,
-  ShoppingCart
+  ShoppingCart,
+  ShieldCheck
 } from "lucide-react";
 
 import { supabase } from "../lib/supabaseClient";
@@ -148,32 +149,20 @@ function Navbar() {
               </NavLink>
             ))}
 
-            {user && role === "admin" && (
-              <NavLink
-                to="/admin"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
-                }
-              >
-                Admin Dashboard
-              </NavLink>
-            )}
-
-            {user && role === "seller" && (
-              <NavLink
-                to="/my-products"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
-                }
-              >
-                My Products
-              </NavLink>
-            )}
+            
           </nav>
 
           <div className="uniora-nav-actions">
+            {user && role === "admin" && (
+              <button className="uniora-admin-button" type="button" onClick={() => { closeMenu(); navigate("/admin"); }}>
+                <ShieldCheck size={16} /><span>Admin Dashboard</span>
+              </button>
+            )}
+            {user && role === "seller" && (
+              <button className="uniora-seller-button" type="button" onClick={() => { closeMenu(); navigate("/my-products"); }}>
+                <ShoppingBag size={16} /><span>My Products</span>
+              </button>
+            )}
             <button
               className="uniora-nav-icon"
               type="button"
