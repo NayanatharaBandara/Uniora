@@ -31,32 +31,19 @@ const fallbackImages = {
 
 function getFallbackImage(product) {
   const name = (product.name || "").toLowerCase();
+  const description = (product.description || "").toLowerCase();
+  const text = `${name} ${description}`;
 
-  if (name.includes("laptop bag") || name.includes("laptopbag")) return "/images/market laptopbag.jpg";
-  if (name.includes("bag") || name.includes("backpack")) return "/images/bags.jpg";
-  if (name.includes("stapler") || name.includes("stepler")) return "/images/market stepler.jpg";
-  if (name.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
-  if (name.includes("pen")) return "/images/market_premium pen collection.jpg";
-  if (name.includes("calculator")) return "/images/market_calculator.jpg";
-  if (name.includes("water bottle") || name.includes("bottle")) return "/images/market_resuable water bottles.jpg";
-
-  if (name.includes("book") || name.includes("notes")) {
-    return fallbackImages.books;
-  }
-
-  if (
-    name.includes("laptop") ||
-    name.includes("calculator") ||
-    name.includes("headphone") ||
-    name.includes("electronic")
-  ) {
-    return fallbackImages.electronics;
-  }
-
-  if (name.includes("bag") || name.includes("backpack")) {
-    return fallbackImages.bags;
-  }
-
+  // Specific product matches must come before broad category matches.
+  if (text.includes("laptop") && text.includes("bag")) return "/images/market laptopbag.jpg";
+  if (text.includes("stapler") || text.includes("stepler")) return "/images/market stepler.jpg";
+  if (text.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
+  if (text.includes("premium pen") || text.includes("pen collection")) return "/images/market_premium pen collection.jpg";
+  if (text.includes("calculator")) return "/images/market_calculator.jpg";
+  if (text.includes("water bottle") || text.includes("reusable bottle")) return "/images/market_resuable water bottles.jpg";
+  if (text.includes("backpack") || text.includes("bag")) return "/images/bags.jpg";
+  if (text.includes("book") || text.includes("notes")) return fallbackImages.books;
+  if (text.includes("laptop") || text.includes("headphone") || text.includes("electronic")) return fallbackImages.electronics;
   return fallbackImages.stationery;
 }
 
@@ -179,14 +166,6 @@ function Marketplace() {
     if (search) {
       result = result.filter((product) => {
         const name = (product.name || "").toLowerCase();
-
-  if (name.includes("laptop bag") || name.includes("laptopbag")) return "/images/market laptopbag.jpg";
-  if (name.includes("bag") || name.includes("backpack")) return "/images/bags.jpg";
-  if (name.includes("stapler") || name.includes("stepler")) return "/images/market stepler.jpg";
-  if (name.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
-  if (name.includes("pen")) return "/images/market_premium pen collection.jpg";
-  if (name.includes("calculator")) return "/images/market_calculator.jpg";
-  if (name.includes("water bottle") || name.includes("bottle")) return "/images/market_resuable water bottles.jpg";
         const description = (product.description || "").toLowerCase();
 
         return name.includes(search) || description.includes(search);
@@ -441,8 +420,7 @@ function Marketplace() {
                   String(item.id) === String(product.category_id)
               );
 
-              const image =
-                product.image_url || getFallbackImage(product);
+              const image = getFallbackImage(product);
 
               return (
                 <Link
@@ -457,8 +435,7 @@ function Marketplace() {
                       loading="lazy"
                       onError={(event) => {
                         event.currentTarget.onerror = null;
-                        event.currentTarget.src =
-                          getFallbackImage(product);
+                        event.currentTarget.src = "/images/Stationary.jpg.jpeg";
                       }}
                     />
 
