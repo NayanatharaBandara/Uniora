@@ -148,6 +148,18 @@ function Navbar() {
               </NavLink>
             ))}
 
+            {user && role === "admin" && (
+              <NavLink
+                to="/admin"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `uniora-nav-link ${isActive ? "uniora-nav-active" : ""}`
+                }
+              >
+                Admin Dashboard
+              </NavLink>
+            )}
+
             {user && role === "seller" && (
               <NavLink
                 to="/my-products"
