@@ -316,9 +316,14 @@ function Home() {
             {categories.map((category) => (
               <Link
                 to={`/marketplace?category=${encodeURIComponent(category.name)}`}
-                className="home-category-card"
+                className={`home-category-card ${category.name === "Bags" ? "bags-category-card" : ""}`}
                 key={category.name}
-                style={{ backgroundImage: `url("${category.image}")` }}
+                style={{
+                  backgroundImage: `url("${category.image}")`,
+                  backgroundSize: category.name === "Bags" ? "contain" : "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
+                }}
               >
                 <div className="category-card-overlay" />
                 <div className="category-card-content">
