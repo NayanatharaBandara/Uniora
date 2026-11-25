@@ -2301,3 +2301,8 @@ body a.discover-card .discover-icon svg {
     animation:none !important; transition:none !important;
   }
 }
+
+
+/* Show the full uploaded Bags category photograph without cropping. */
+.home-category-card.bags-category-card{background-color:#f8f5fa!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}
+.home-category-card.bags-category-card .category-card-overlay{background:linear-gradient(180deg,rgba(35,24,48,.04),rgba(35,24,48,.32))!important}
