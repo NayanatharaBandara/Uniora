@@ -20,17 +20,25 @@ import "../styles/marketplace.css";
 
 const fallbackImages = {
   stationery:
-    "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=85",
+    "/images/Stationary.jpg.jpeg",
   electronics:
-    "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=85",
+    "/images/Electronic items.jpg",
   bags:
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=85",
+    "/images/bags.jpg",
   books:
-    "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=85",
+    "/images/programme fundamentals.jpg",
 };
 
 function getFallbackImage(product) {
   const name = (product.name || "").toLowerCase();
+
+  if (name.includes("laptop bag") || name.includes("laptopbag")) return "/images/market laptopbag.jpg";
+  if (name.includes("bag") || name.includes("backpack")) return "/images/bags.jpg";
+  if (name.includes("stapler") || name.includes("stepler")) return "/images/market stepler.jpg";
+  if (name.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
+  if (name.includes("pen")) return "/images/market_premium pen collection.jpg";
+  if (name.includes("calculator")) return "/images/market_calculator.jpg";
+  if (name.includes("water bottle") || name.includes("bottle")) return "/images/market_resuable water bottles.jpg";
 
   if (name.includes("book") || name.includes("notes")) {
     return fallbackImages.books;
@@ -171,6 +179,14 @@ function Marketplace() {
     if (search) {
       result = result.filter((product) => {
         const name = (product.name || "").toLowerCase();
+
+  if (name.includes("laptop bag") || name.includes("laptopbag")) return "/images/market laptopbag.jpg";
+  if (name.includes("bag") || name.includes("backpack")) return "/images/bags.jpg";
+  if (name.includes("stapler") || name.includes("stepler")) return "/images/market stepler.jpg";
+  if (name.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
+  if (name.includes("pen")) return "/images/market_premium pen collection.jpg";
+  if (name.includes("calculator")) return "/images/market_calculator.jpg";
+  if (name.includes("water bottle") || name.includes("bottle")) return "/images/market_resuable water bottles.jpg";
         const description = (product.description || "").toLowerCase();
 
         return name.includes(search) || description.includes(search);
