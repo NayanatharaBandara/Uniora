@@ -289,7 +289,8 @@ function Home() {
           <div className="home-feature-carousel-viewport">
             <div className={"home-feature-carousel-track" + (carouselResetting ? " resetting" : "")}
               style={{ transform: "translateX(-" + (activeFeatureIndex * 20) + "%)" }}
-              onTransitionEnd={() => {
+              onTransitionEnd={(event) => {
+                if (event.target !== event.currentTarget) return;
                 if (activeFeatureIndex >= features.length) {
                   setCarouselResetting(true);
                   setActiveFeatureIndex(0);
