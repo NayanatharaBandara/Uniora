@@ -219,3 +219,191 @@
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
+
+/* FINAL POLISH: balanced, square-image product cards on small screens */
+@media (max-width: 760px) {
+  .marketplace-product-grid,
+  .home-product-grid,
+  .secondhand-grid,
+  .services-grid,
+  .rentals-items-grid,
+  .event-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch;
+    gap: 9px;
+  }
+
+  .marketplace-product-card,
+  .home-product-card,
+  .secondhand-card,
+  .service-card,
+  .rental-item-card,
+  .event-service-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .marketplace-product-image,
+  .home-product-card .product-image-wrap,
+  .secondhand-card-image,
+  .service-card-image,
+  .rental-item-image,
+  .event-service-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .marketplace-product-image img,
+  .home-product-card .product-background-image,
+  .secondhand-card-image img,
+  .service-card-image img,
+  .rental-item-image img,
+  .event-service-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home-product-card .product-background-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .marketplace-product-info,
+  .home-product-info,
+  .secondhand-card-info,
+  .service-card-body,
+  .event-service-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+    padding: 9px;
+    gap: 5px;
+  }
+
+  .marketplace-product-info h3,
+  .home-product-info h3,
+  .secondhand-card-info h3,
+  .service-card-body h3,
+  .event-service-info h3 {
+    display: -webkit-box;
+    min-height: 0 !important;
+    max-height: 2.7em;
+    margin: 0;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .marketplace-product-info p,
+  .home-product-info p,
+  .secondhand-card-description,
+  .service-card-body p,
+  .event-service-info p {
+    display: -webkit-box;
+    min-height: 0 !important;
+    max-height: 2.8em;
+    margin: 0;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .marketplace-product-bottom,
+  .product-card-bottom,
+  .secondhand-card-actions,
+  .service-card-bottom,
+  .event-service-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: auto;
+    padding-top: 7px;
+  }
+
+  .marketplace-product-bottom strong,
+  .product-card-bottom strong,
+  .secondhand-card-info strong,
+  .service-card-bottom strong,
+  .event-service-bottom strong {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .service-card-body button,
+  .secondhand-card-actions button,
+  .event-service-info button {
+    max-width: 100%;
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .marketplace-product-category,
+  .marketplace-out-of-stock,
+  .product-tag,
+  .secondhand-card-category,
+  .secondhand-condition {
+    max-width: calc(100% - 12px);
+    font-size: 9px;
+  }
+
+  .home-category-card,
+  .services-category-card,
+  .rental-category-card,
+  .events-category-card {
+    height: 132px;
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 380px) {
+  .marketplace-product-grid,
+  .home-product-grid,
+  .secondhand-grid,
+  .services-grid,
+  .rentals-items-grid,
+  .event-service-grid {
+    gap: 7px;
+  }
+
+  .marketplace-product-info,
+  .home-product-info,
+  .secondhand-card-info,
+  .service-card-body,
+  .event-service-info {
+    padding: 7px;
+  }
+
+  .marketplace-product-info h3,
+  .home-product-info h3,
+  .secondhand-card-info h3,
+  .service-card-body h3,
+  .event-service-info h3 {
+    font-size: 11px;
+  }
+}
