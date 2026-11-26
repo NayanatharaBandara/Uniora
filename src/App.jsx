@@ -1,6 +1,6 @@
 import SellerProducts from "./pages/SellerProducts";
-import { Routes, Route, useLocation, NavLink } from "react-router-dom";
-import { Home as HomeIcon, LayoutGrid, UserRound, ShoppingCart } from "lucide-react";
+import { Routes, Route, useLocation, NavLink, Link } from "react-router-dom";
+import { Home as HomeIcon, LayoutGrid, UserRound, ShoppingCart, ArrowRight } from "lucide-react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -44,6 +44,32 @@ function MobileBottomNav() {
   );
 }
 
+
+const pageSequence = [
+  { path: "/", label: "Home" },
+  { path: "/marketplace", label: "Marketplace" },
+  { path: "/services", label: "Services" },
+  { path: "/rentals", label: "Rentals" },
+  { path: "/events", label: "Events" },
+];
+
+function PageNextNavigation({ pathname }) {
+  const currentIndex = pageSequence.findIndex((page) => page.path === pathname);
+  if (currentIndex < 0 || currentIndex === pageSequence.length - 1) return null;
+
+  const nextPage = pageSequence[currentIndex + 1];
+  return (
+    <div style={{ display: "flex", justifyContent: "flex-end", padding: "28px 7%", background: "#f8f5fa" }}>
+      <Link
+        to={nextPage.path}
+        style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "14px 22px", borderRadius: 12, background: "#7954a5", color: "#fff", textDecoration: "none", fontWeight: 700, boxShadow: "0 8px 20px rgba(80,52,110,.16)" }}
+      >
+        Continue to {nextPage.label} <ArrowRight size={18} />
+      </Link>
+    </div>
+  );
+}
+
 function App() {
   const location = useLocation();
   const hideMobileNav = ["/login", "/checkout"].includes(location.pathname);
@@ -76,6 +102,7 @@ function App() {
           } />
         </Routes>
       </main>
+      <PageNextNavigation pathname={location.pathname} />
       {location.pathname !== "/" && <Footer />}
       {!hideMobileNav && <MobileBottomNav />}
     </>
