@@ -2306,3 +2306,160 @@ body a.discover-card .discover-icon svg {
 /* Show the full uploaded Bags category photograph without cropping. */
 .home-category-card.bags-category-card{background-color:#f8f5fa!important;background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important}
 .home-category-card.bags-category-card .category-card-overlay{background:linear-gradient(180deg,rgba(35,24,48,.04),rgba(35,24,48,.32))!important}
+
+
+/* AUTOMATIC FEATURE CAROUSEL - Marketplace / Second-hand / Services / Rentals */
+.home-feature-carousel {
+  width: 100%;
+  padding: 28px 5% 20px;
+  overflow: hidden;
+  background: #fbf9fc;
+}
+
+.home-feature-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.home-feature-carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 700ms cubic-bezier(.22,.75,.25,1);
+  will-change: transform;
+}
+
+.home-feature-carousel-track .feature-strip-card {
+  position: relative;
+  display: flex;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 250px;
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-feature-carousel-track .feature-card-photo {
+  position: absolute;
+  inset: 0;
+  background-image: var(--feature-photo);
+  background-size: cover;
+  background-position: center;
+  transition: transform 5s ease;
+}
+
+.home-feature-carousel-track .feature-strip-card:hover .feature-card-photo {
+  transform: scale(1.04);
+}
+
+.home-feature-carousel-track .feature-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(24,16,34,.78), rgba(24,16,34,.18));
+}
+
+.home-feature-carousel-track .feature-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 30px 6%;
+}
+
+.home-feature-carousel-track .feature-card-content h3 {
+  color: #fff;
+  font-size: clamp(23px, 3vw, 36px);
+  margin: 0 0 8px;
+}
+
+.home-feature-carousel-track .feature-card-content p {
+  color: #fff;
+  font-size: 15px;
+  margin: 0 0 13px;
+}
+
+.home-feature-carousel-track .feature-action {
+  color: #fff;
+  font-weight: 700;
+}
+
+.home-feature-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding-top: 15px;
+}
+
+.home-feature-carousel-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50px;
+  background: #c9bdd7;
+  cursor: pointer;
+  transition: width 250ms ease, background 250ms ease;
+}
+
+.home-feature-carousel-dots button.active {
+  width: 25px;
+  background: #7954a5;
+}
+
+@media (max-width: 850px) {
+  .home-feature-carousel {
+    padding: 18px 4% 14px;
+  }
+
+  .home-feature-carousel-viewport,
+  .home-feature-carousel-track .feature-strip-card {
+    border-radius: 15px;
+  }
+
+  .home-feature-carousel-track .feature-strip-card {
+    min-height: 190px;
+  }
+
+  .home-feature-carousel-track .feature-card-content {
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .home-feature-carousel-track .feature-card-content h3 {
+    font-size: 20px;
+  }
+
+  .home-feature-carousel-track .feature-card-content p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-feature-carousel-track .feature-strip-card {
+    min-height: 165px;
+  }
+
+  .home-feature-carousel-track .feature-card-content {
+    padding: 16px;
+  }
+
+  .home-feature-carousel-track .feature-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-feature-carousel-track,
+  .home-feature-carousel-track * {
+    transition: none !important;
+  }
+}
