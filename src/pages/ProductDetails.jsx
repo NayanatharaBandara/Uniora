@@ -74,6 +74,7 @@ function ProductDetails() {
       }
 
       existingItem.quantity += 1;
+      existingItem.image_url = getProductDisplayImage(product);
     } else {
       savedCart.push({
         id: product.id,
