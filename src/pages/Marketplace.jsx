@@ -16,36 +16,9 @@ import {
 } from "lucide-react";
 
 import { supabase } from "../lib/supabaseClient";
+import { getProductDisplayImage } from "../utils/productImages";
 import "../styles/marketplace.css";
 
-const fallbackImages = {
-  stationery:
-    "/images/Stationary.jpg.jpeg",
-  electronics:
-    "/images/Electronic items.jpg",
-  bags:
-    "/images/bags.jpg",
-  books:
-    "/images/programme fundamentals.jpg",
-};
-
-function getFallbackImage(product) {
-  const name = (product.name || "").toLowerCase();
-  const description = (product.description || "").toLowerCase();
-  const text = `${name} ${description}`;
-
-  // Specific product matches must come before broad category matches.
-  if (text.includes("laptop") && text.includes("bag")) return "/images/laptop-bags.jpg";
-  if (text.includes("stapler") || text.includes("stepler")) return "/images/market stepler.jpg";
-  if (text.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
-  if (text.includes("premium pen") || text.includes("pen collection")) return "/images/market_premium pen collection.jpg";
-  if (text.includes("calculator")) return "/images/market_calculator.jpg";
-  if (text.includes("water bottle") || text.includes("reusable bottle")) return "/images/market_resuable water bottles.jpg";
-  if (text.includes("backpack") || text.includes("bag")) return "/images/bags.jpg";
-  if (text.includes("book") || text.includes("notes")) return fallbackImages.books;
-  if (text.includes("laptop") || text.includes("headphone") || text.includes("electronic")) return fallbackImages.electronics;
-  return fallbackImages.stationery;
-}
 
 function Marketplace() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -420,7 +393,7 @@ function Marketplace() {
                   String(item.id) === String(product.category_id)
               );
 
-              const image = getFallbackImage(product);
+              const image = getProductDisplayImage(product);
 
               return (
                 <Link
