@@ -63,10 +63,7 @@ function Checkout() {
             savedCart.find(
               (item) => String(item.id) === String(product.id)
             )?.quantity || 1,
-          image_url:
-            savedCart.find(
-              (item) => String(item.id) === String(product.id)
-            )?.image_url || getProductDisplayImage(product),
+          image_url: getProductDisplayImage(product),
         }));
 
         setCartItems(updatedCart);
