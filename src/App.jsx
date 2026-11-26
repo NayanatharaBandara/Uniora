@@ -1,5 +1,5 @@
 import SellerProducts from "./pages/SellerProducts";
-import { Routes, Route, useLocation, NavLink } from "react-router-dom";
+import { Routes, Route, useLocation, NavLink, Link } from "react-router-dom";
 import { Home as HomeIcon, LayoutGrid, UserRound, ShoppingCart, ArrowRight } from "lucide-react";
 
 import Navbar from "./components/Navbar";
