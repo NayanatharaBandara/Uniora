@@ -121,6 +121,18 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const [pauseFeatureCarousel, setPauseFeatureCarousel] = useState(false);
+
+  useEffect(() => {
+    if (pauseFeatureCarousel) return undefined;
+
+    const timer = window.setInterval(() => {
+      setActiveFeatureIndex((current) => (current + 1) % features.length);
+    }, 3500);
+
+    return () => window.clearInterval(timer);
+  }, [pauseFeatureCarousel]);
 
   useEffect(() => {
     let active = true;
@@ -265,37 +277,65 @@ function Home() {
           </div>
         </section>
 
-        {/* FEATURE STRIP */}
-        <section className="home-feature-strip">
-          {features.map((feature) => {
-            const Icon = feature.icon;
+        {/* AUTOMATIC FEATURE CAROUSEL */}
+        <section
+          className="home-feature-carousel"
+          aria-label="Explore UNIORA sections"
+          onMouseEnter={() => setPauseFeatureCarousel(true)}
+          onMouseLeave={() => setPauseFeatureCarousel(false)}
+        >
+          <div className="home-feature-carousel-viewport">
+            <div
+              className="home-feature-carousel-track"
+              style={{ transform: `translateX(-${activeFeatureIndex * 100}%)` }}
+            >
+              {features.map((feature) => {
+                const Icon = feature.icon;
 
-            return (
-              <Link
-                to={feature.link}
-                className="feature-strip-card"
+                return (
+                  <Link
+                    to={feature.link}
+                    className="feature-strip-card"
+                    key={feature.title}
+                    style={{
+                      "--feature-photo": `url("${feature.image}")`,
+                      backgroundImage: `url("${feature.image}")`
+                    }}
+                  >
+                    <div className="feature-card-photo" />
+                    <div className="feature-card-overlay" />
+
+                    <div className="feature-card-content">
+                      <span className="feature-icon">
+                        <Icon size={22} />
+                      </span>
+
+                      <div>
+                        <h3>{feature.title}</h3>
+                        <p>{feature.description}</p>
+                        <span className="feature-action">
+                          Explore <ArrowRight size={15} />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="home-feature-carousel-dots" aria-label="Carousel slide controls">
+            {features.map((feature, index) => (
+              <button
                 key={feature.title}
-                style={{ "--feature-photo": `url("${feature.image}")` }}
-              >
-                <div className="feature-card-photo" />
-                <div className="feature-card-overlay" />
-
-                <div className="feature-card-content">
-                  <span className="feature-icon">
-                    <Icon size={22} />
-                  </span>
-
-                  <div>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
-                    <span className="feature-action">
-                      Explore <ArrowRight size={15} />
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
+                type="button"
+                className={index === activeFeatureIndex ? "active" : ""}
+                aria-label={`Show ${feature.title}`}
+                aria-current={index === activeFeatureIndex ? "true" : undefined}
+                onClick={() => setActiveFeatureIndex(index)}
+              />
+            ))}
+          </div>
         </section>
 
         {/* CATEGORIES */}
