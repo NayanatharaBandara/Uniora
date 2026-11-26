@@ -2463,3 +2463,72 @@ body a.discover-card .discover-icon svg {
     transition: none !important;
   }
 }
+
+
+/* FINAL POLISH: clear, compact homepage feature carousel */
+.home-feature-carousel {
+  padding-top: 18px;
+  padding-bottom: 14px;
+}
+
+.home-feature-carousel-viewport {
+  max-width: 100%;
+}
+
+.home-feature-carousel-track .feature-strip-card {
+  height: 205px;
+  min-height: 205px;
+  max-height: 205px;
+  isolation: isolate;
+}
+
+.home-feature-carousel-track .feature-card-photo {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none;
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  image-rendering: auto;
+}
+
+.home-feature-carousel-track .feature-card-overlay {
+  background: linear-gradient(90deg, rgba(24,16,34,.58), rgba(24,16,34,.08)) !important;
+}
+
+.home-feature-carousel-track .feature-card-content {
+  padding: 24px 5%;
+}
+
+@media (max-width: 850px) {
+  .home-feature-carousel-track .feature-strip-card {
+    height: 175px;
+    min-height: 175px;
+    max-height: 175px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-feature-carousel {
+    padding: 14px 4% 12px;
+  }
+
+  .home-feature-carousel-track .feature-strip-card {
+    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
+  }
+
+  .home-feature-carousel-track .feature-card-content {
+    padding: 14px;
+  }
+
+  .home-feature-carousel-track .feature-card-content h3 {
+    font-size: 18px;
+  }
+
+  .home-feature-carousel-track .feature-card-content p {
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+}
