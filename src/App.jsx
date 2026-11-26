@@ -4,6 +4,7 @@ import { Home as HomeIcon, LayoutGrid, UserRound, ShoppingCart, ArrowRight } fro
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "./styles/mobile-responsive-cards.css";
 
 import Home from "./pages/Home";
 import Marketplace from "./pages/Marketplace";
