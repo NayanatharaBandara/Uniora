@@ -35,7 +35,7 @@ function getFallbackImage(product) {
   const text = `${name} ${description}`;
 
   // Specific product matches must come before broad category matches.
-  if (text.includes("laptop") && text.includes("bag")) return "/images/laptop.jpg";
+  if (text.includes("laptop") && text.includes("bag")) return "/images/laptop-bags.jpg";
   if (text.includes("stapler") || text.includes("stepler")) return "/images/market stepler.jpg";
   if (text.includes("programming fundamentals")) return "/images/market_programming fundamentals.jpg";
   if (text.includes("premium pen") || text.includes("pen collection")) return "/images/market_premium pen collection.jpg";
