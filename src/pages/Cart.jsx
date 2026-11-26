@@ -52,7 +52,7 @@ function Cart() {
 
         return {
           ...product,
-          image_url: savedItem?.image_url || getProductDisplayImage(product),
+          image_url: getProductDisplayImage(product),
           quantity: savedItem?.quantity || 1
         };
       });
@@ -71,7 +71,7 @@ function Cart() {
         updatedItems.map((item) => ({
           id: item.id,
           quantity: item.quantity,
-          image_url: item.image_url || getProductDisplayImage(item)
+          image_url: getProductDisplayImage(item)
         }))
       )
     );
