@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { supabase } from "../lib/supabaseClient";
+import { getProductDisplayImage } from "../utils/productImages";
 import "../styles/cart.css";
 
 function Cart() {
@@ -51,6 +52,7 @@ function Cart() {
 
         return {
           ...product,
+          image_url: getProductDisplayImage(product),
           quantity: savedItem?.quantity || 1
         };
       });
@@ -68,7 +70,8 @@ function Cart() {
       JSON.stringify(
         updatedItems.map((item) => ({
           id: item.id,
-          quantity: item.quantity
+          quantity: item.quantity,
+          image_url: getProductDisplayImage(item)
         }))
       )
     );

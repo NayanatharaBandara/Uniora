@@ -123,16 +123,21 @@ function Home() {
   const [searchText, setSearchText] = useState("");
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const [pauseFeatureCarousel, setPauseFeatureCarousel] = useState(false);
+  const [carouselResetting, setCarouselResetting] = useState(false);
 
   useEffect(() => {
     if (pauseFeatureCarousel) return undefined;
-
     const timer = window.setInterval(() => {
-      setActiveFeatureIndex((current) => (current + 1) % features.length);
+      setActiveFeatureIndex((current) => current + 1);
     }, 3500);
-
     return () => window.clearInterval(timer);
   }, [pauseFeatureCarousel]);
+
+  useEffect(() => {
+    if (!carouselResetting) return undefined;
+    const frame = window.requestAnimationFrame(() => setCarouselResetting(false));
+    return () => window.cancelAnimationFrame(frame);
+  }, [carouselResetting]);
 
   useEffect(() => {
     let active = true;
@@ -277,45 +282,33 @@ function Home() {
           </div>
         </section>
 
-        {/* AUTOMATIC FEATURE CAROUSEL */}
-        <section
-          className="home-feature-carousel"
-          aria-label="Explore UNIORA sections"
+        {/* FOUR-CARD AUTOMATIC FEATURE CAROUSEL */}
+        <section className="home-feature-carousel" aria-label="Explore UNIORA sections"
           onMouseEnter={() => setPauseFeatureCarousel(true)}
-          onMouseLeave={() => setPauseFeatureCarousel(false)}
-        >
+          onMouseLeave={() => setPauseFeatureCarousel(false)}>
           <div className="home-feature-carousel-viewport">
-            <div
-              className="home-feature-carousel-track"
-              style={{ transform: `translateX(-${activeFeatureIndex * 100}%)` }}
-            >
-              {features.map((feature) => {
+            <div className={"home-feature-carousel-track" + (carouselResetting ? " resetting" : "")}
+              style={{ transform: "translateX(-" + (activeFeatureIndex * 20) + "%)" }}
+              onTransitionEnd={(event) => {
+                if (event.target !== event.currentTarget) return;
+                if (activeFeatureIndex >= features.length) {
+                  setCarouselResetting(true);
+                  setActiveFeatureIndex(0);
+                }
+              }}>
+              {[...features, features[0]].map((feature, index) => {
                 const Icon = feature.icon;
-
                 return (
-                  <Link
-                    to={feature.link}
-                    className="feature-strip-card"
-                    key={feature.title}
-                    style={{
-                      "--feature-photo": `url("${feature.image}")`,
-                      backgroundImage: `url("${feature.image}")`
-                    }}
-                  >
+                  <Link to={feature.link} className="feature-strip-card" key={feature.title + "-" + index}
+                    style={{ "--feature-photo": `url("${feature.image}")` }}>
                     <div className="feature-card-photo" />
                     <div className="feature-card-overlay" />
-
                     <div className="feature-card-content">
-                      <span className="feature-icon">
-                        <Icon size={22} />
-                      </span>
-
+                      <span className="feature-icon"><Icon size={22} /></span>
                       <div>
                         <h3>{feature.title}</h3>
                         <p>{feature.description}</p>
-                        <span className="feature-action">
-                          Explore <ArrowRight size={15} />
-                        </span>
+                        <span className="feature-action">Explore <ArrowRight size={15} /></span>
                       </div>
                     </div>
                   </Link>
@@ -323,17 +316,13 @@ function Home() {
               })}
             </div>
           </div>
-
           <div className="home-feature-carousel-dots" aria-label="Carousel slide controls">
             {features.map((feature, index) => (
-              <button
-                key={feature.title}
-                type="button"
-                className={index === activeFeatureIndex ? "active" : ""}
-                aria-label={`Show ${feature.title}`}
-                aria-current={index === activeFeatureIndex ? "true" : undefined}
-                onClick={() => setActiveFeatureIndex(index)}
-              />
+              <button key={feature.title} type="button"
+                className={index === (activeFeatureIndex % features.length) ? "active" : ""}
+                aria-label={"Show " + feature.title}
+                aria-current={index === (activeFeatureIndex % features.length) ? "true" : undefined}
+                onClick={() => setActiveFeatureIndex(index)} />
             ))}
           </div>
         </section>

@@ -407,3 +407,73 @@
     font-size: 11px;
   }
 }
+
+/* Final mobile card sizing: balanced square images and compact information. */
+@media (max-width: 760px) {
+  .marketplace-product-grid,.home-product-grid,.secondhand-grid,.services-grid,.rentals-items-grid,.event-service-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    align-items: stretch; gap: 9px !important;
+  }
+  .marketplace-product-card,.home-product-card,.secondhand-card,.service-card,.rental-item-card,.event-service-card {
+    min-width: 0; height: auto !important; min-height: 0 !important; overflow: hidden; border-radius: 12px;
+  }
+  .marketplace-product-image,.home-product-card .product-image-wrap,.secondhand-card-image,.service-card-image,.rental-item-image,.event-service-image,.events-card-image {
+    width: 100%; height: auto !important; min-height: 0 !important; aspect-ratio: 1 / 1; overflow: hidden;
+  }
+  .marketplace-product-image img,.home-product-card .product-background-image,.secondhand-card-image img,.service-card-image img,.rental-item-image img,.event-service-image img,.events-card-image img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .marketplace-product-info,.home-product-info,.secondhand-card-info,.service-card-body,.event-service-info,.events-card-info {
+    min-width: 0; padding: 8px !important; gap: 5px;
+  }
+  .marketplace-product-info h3,.home-product-info h3,.secondhand-card-info h3,.service-card-body h3,.event-service-info h3,.events-card-info h3 {
+    min-height: 0 !important; max-height: 2.7em; overflow: hidden; font-size: 12px; line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .marketplace-product-description,.secondhand-card-description,.service-card-body p,.event-service-info p,.events-card-info p {
+    min-height: 0 !important; max-height: 2.8em; overflow: hidden; font-size: 10px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .marketplace-product-bottom,.product-card-bottom,.secondhand-card-actions,.service-card-bottom,.event-service-bottom {
+    margin-top: auto; padding-top: 6px; gap: 5px;
+  }
+}
+@media (max-width: 380px) {
+  .marketplace-product-grid,.home-product-grid,.secondhand-grid,.services-grid,.rentals-items-grid,.event-service-grid { gap: 7px !important; }
+}
+
+@media (max-width: 760px) {
+  .rental-item-content,
+  .rental-item-price,
+  .secondhand-price-row {
+    min-width: 0;
+    padding: 8px !important;
+    gap: 5px;
+  }
+  .rental-item-content h3,
+  .secondhand-card-info h3 {
+    min-height: 0 !important;
+    max-height: 2.7em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .rental-item-content p {
+    max-height: 2.8em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  .rental-book-button,
+  .secondhand-contact-button {
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+}

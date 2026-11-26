@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { supabase } from "../lib/supabaseClient";
+import { getProductDisplayImage } from "../utils/productImages";
 import "../styles/productDetails.css";
 
 function ProductDetails() {
@@ -73,10 +74,12 @@ function ProductDetails() {
       }
 
       existingItem.quantity += 1;
+      existingItem.image_url = getProductDisplayImage(product);
     } else {
       savedCart.push({
         id: product.id,
-        quantity: 1
+        quantity: 1,
+        image_url: getProductDisplayImage(product)
       });
     }
 
@@ -123,10 +126,7 @@ function ProductDetails() {
 
         <div className="product-details-image">
           <img
-            src={
-              product.image_url ||
-              "https://placehold.co/600x600?text=UNIORA"
-            }
+            src={getProductDisplayImage(product)}
             alt={product.name}
           />
         </div>

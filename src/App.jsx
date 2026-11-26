@@ -1,5 +1,6 @@
 import SellerProducts from "./pages/SellerProducts";
 import { Routes, Route, useLocation, NavLink, Link } from "react-router-dom";
+import { useEffect } from "react";
 import { Home as HomeIcon, LayoutGrid, UserRound, ShoppingCart, ArrowRight } from "lucide-react";
 
 import Navbar from "./components/Navbar";
@@ -73,6 +74,11 @@ function PageNextNavigation({ pathname }) {
 
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const hideMobileNav = ["/login", "/checkout"].includes(location.pathname);
 
   return (
