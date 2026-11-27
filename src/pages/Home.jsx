@@ -121,24 +121,6 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
-  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
-  const [pauseFeatureCarousel, setPauseFeatureCarousel] = useState(false);
-  const [carouselResetting, setCarouselResetting] = useState(false);
-
-  useEffect(() => {
-    if (pauseFeatureCarousel) return undefined;
-    const timer = window.setInterval(() => {
-      setActiveFeatureIndex((current) => current + 1);
-    }, 3500);
-    return () => window.clearInterval(timer);
-  }, [pauseFeatureCarousel]);
-
-  useEffect(() => {
-    if (!carouselResetting) return undefined;
-    const frame = window.requestAnimationFrame(() => setCarouselResetting(false));
-    return () => window.cancelAnimationFrame(frame);
-  }, [carouselResetting]);
-
   useEffect(() => {
     let active = true;
 
@@ -282,25 +264,19 @@ function Home() {
           </div>
         </section>
 
-        {/* FOUR-CARD AUTOMATIC FEATURE CAROUSEL */}
-        <section className="home-feature-carousel" aria-label="Explore UNIORA sections"
-          onMouseEnter={() => setPauseFeatureCarousel(true)}
-          onMouseLeave={() => setPauseFeatureCarousel(false)}>
+        {/* CONTINUOUS FOUR-CARD / TWO-CARD FEATURE CAROUSEL */}
+        <section className="home-feature-carousel" aria-label="Explore UNIORA sections">
           <div className="home-feature-carousel-viewport">
-            <div className={"home-feature-carousel-track" + (carouselResetting ? " resetting" : "")}
-              style={{ transform: "translateX(-" + (activeFeatureIndex * 20) + "%)" }}
-              onTransitionEnd={(event) => {
-                if (event.target !== event.currentTarget) return;
-                if (activeFeatureIndex >= features.length) {
-                  setCarouselResetting(true);
-                  setActiveFeatureIndex(0);
-                }
-              }}>
-              {[...features, features[0]].map((feature, index) => {
+            <div className="home-feature-carousel-track">
+              {[...features, ...features].map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <Link to={feature.link} className="feature-strip-card" key={feature.title + "-" + index}
-                    style={{ "--feature-photo": `url("${feature.image}")` }}>
+                  <Link
+                    to={feature.link}
+                    className="feature-strip-card"
+                    key={feature.title + "-" + index}
+                    style={{ "--feature-photo": `url("${feature.image}")` }}
+                  >
                     <div className="feature-card-photo" />
                     <div className="feature-card-overlay" />
                     <div className="feature-card-content">
@@ -315,15 +291,6 @@ function Home() {
                 );
               })}
             </div>
-          </div>
-          <div className="home-feature-carousel-dots" aria-label="Carousel slide controls">
-            {features.map((feature, index) => (
-              <button key={feature.title} type="button"
-                className={index === (activeFeatureIndex % features.length) ? "active" : ""}
-                aria-label={"Show " + feature.title}
-                aria-current={index === (activeFeatureIndex % features.length) ? "true" : undefined}
-                onClick={() => setActiveFeatureIndex(index)} />
-            ))}
           </div>
         </section>
 
