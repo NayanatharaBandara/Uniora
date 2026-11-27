@@ -2685,3 +2685,62 @@ body a.discover-card .discover-icon svg {
 @media (prefers-reduced-motion: reduce) {
   .home-feature-carousel-track { animation: none !important; }
 }
+
+
+/* Mobile carousel correction: keep two full cards visible and cycle the set reliably. */
+.home-feature-carousel,
+.home-feature-carousel-viewport {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+.home-feature-carousel-track {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: 200% !important;
+  animation: uniora-feature-loop 24s linear infinite !important;
+  animation-play-state: running;
+}
+.home-feature-carousel-track .feature-strip-card {
+  display: flex !important;
+  box-sizing: border-box !important;
+  flex: 0 0 12.5% !important;
+  width: 12.5% !important;
+  min-width: 12.5% !important;
+  max-width: 12.5% !important;
+}
+@media (max-width: 850px) {
+  .home-feature-carousel-track {
+    width: 400% !important;
+    animation: uniora-feature-loop 16s linear infinite !important;
+  }
+  .home-feature-carousel-track .feature-strip-card {
+    flex: 0 0 12.5% !important;
+    width: 12.5% !important;
+    min-width: 12.5% !important;
+    max-width: 12.5% !important;
+  }
+}
+@media (max-width: 480px) {
+  .home-feature-carousel-track {
+    animation-duration: 14s !important;
+  }
+}
+/* The requested automatic carousel remains active even when device-wide reduced
+   motion is enabled; the movement is slow and linear rather than flashing. */
+@media (prefers-reduced-motion: reduce) {
+  .home-feature-carousel-track {
+    animation: uniora-feature-loop 24s linear infinite !important;
+  }
+  @media (max-width: 850px) {
+    .home-feature-carousel-track {
+      animation: uniora-feature-loop 16s linear infinite !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .home-feature-carousel-track {
+      animation-duration: 14s !important;
+    }
+  }
+}
