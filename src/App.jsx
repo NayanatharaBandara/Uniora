@@ -50,6 +50,7 @@ function MobileBottomNav() {
 const pageSequence = [
   { path: "/", label: "Home" },
   { path: "/marketplace", label: "Marketplace" },
+  { path: "/secondhand", label: "Second-hand" },
   { path: "/services", label: "Services" },
   { path: "/rentals", label: "Rentals" },
   { path: "/events", label: "Events" },
